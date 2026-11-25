@@ -10,39 +10,54 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%237a1f2e'/><circle cx='32' cy='32' r='16' fill='none' stroke='white' stroke-width='4'/><circle cx='32' cy='32' r='5' fill='white'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
 <style>
 :root{
-  --ink:#141414; --sub:#4a4d52; --line:#d4d7dc; --bg:#ffffff; --soft:#eef4f7; --navy:#141414;
+  --ink:#141414; --sub:#2c2f34; --line:#c2c6cc; --bg:#ffffff; --soft:#eef4f7; --navy:#141414;
   --blue:#7a1f2e; --blue2:#8f2436; --sky:#e3eef3; --teal:#7a1f2e; --amber:#9aa0a8; --silver:#c4c8ce; --glacier:#dbe9ef;
-  --max:1160px;
+  --max:1240px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{font-size:18px;scroll-behavior:smooth;scroll-padding-top:84px}
 html,body{overflow-x:hidden}
-body{background:var(--bg);color:var(--ink);font:20px/1.7 "Open Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font:21px/1.7 "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
 img{display:block;max-width:100%}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-.mono{font-family:Montserrat,sans-serif;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+.mono{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
 
+/* wins */
+.wins{padding:70px 0 30px}
+.wins .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.win{position:relative;border-radius:18px;padding:28px 26px 26px;color:#fff;overflow:hidden;transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.win:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(20,20,20,.22)}
+.win.w1{background:linear-gradient(135deg,#7a1f2e,#a8323f)}
+.win.w2{background:linear-gradient(135deg,#141414,#3a3d42)}
+.win.w3{background:linear-gradient(135deg,#5d7f8f,#8fb2c1)}
+.win .medal{font-size:2.6rem;line-height:1}
+.win .place{display:inline-block;margin-top:14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:4px 12px;border-radius:999px;font-weight:700;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;align-self:flex-start}
+.win h3{color:#fff;font-size:1.45rem;margin-top:12px;line-height:1.3}
+.win p{color:rgba(255,255,255,.92);margin-top:8px;font-size:1.02rem;flex:1}
+.win a{color:#fff;font-weight:700;margin-top:16px;text-decoration:underline;text-underline-offset:4px}
+.win .big{position:absolute;right:-10px;top:-20px;font-size:8rem;opacity:.12;font-weight:900}
+@media(max-width:900px){.wins .wgrid{grid-template-columns:1fr}}
 /* nav */
 header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;letter-spacing:-.01em}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;letter-spacing:-.01em;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1.25rem}
 .brand:hover{text-decoration:none}
-.brand i{width:30px;height:30px;border-radius:8px;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem;font-weight:700}
-.nav ul{display:flex;gap:26px;list-style:none}
-.nav ul a{color:var(--sub);font-size:1.05rem;font-weight:500}
+.brand i{width:36px;height:36px;border-radius:8px;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem;font-weight:700}
+.nav ul{display:flex;gap:22px;list-style:none;white-space:nowrap}
+.brand{white-space:nowrap;margin-right:20px}
+.nav ul a{color:var(--sub);font-size:1.08rem;font-weight:500}
 .nav ul a:hover{color:var(--ink);text-decoration:none}
-.status{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--teal);background:#f4e4e7;padding:6px 12px;border-radius:999px;white-space:nowrap}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.95rem;font-weight:600;color:var(--teal);background:#f4e4e7;padding:6px 12px;border-radius:999px;white-space:nowrap}
 .status:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
 @keyframes pulse{50%{opacity:.35}}
 .menu{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:40px;height:40px;cursor:pointer}
-@media (max-width:980px){
-  .nav ul{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);display:none}
+@media (max-width:1380px){
+  .nav ul{position:absolute;top:74px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);display:none}
   .nav ul.open{display:flex}.nav ul a{display:block;padding:12px 24px}
   .menu{display:grid;place-items:center}.status{display:none}
 }
@@ -53,7 +68,7 @@ header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backd
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.96) 0%,rgba(20,20,20,.86) 45%,rgba(122,31,46,.45) 100%);z-index:1;pointer-events:none}
 .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.35fr .65fr;gap:48px;align-items:center;padding:92px 24px 84px}
 .hero .mono{color:var(--glacier)}
-.hero h1{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(2.8rem,6.4vw,4.8rem);line-height:1.05;letter-spacing:-.02em;font-weight:700;color:#fff;margin:14px 0 18px}
+.hero h1{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:clamp(2.8rem,6.4vw,4.8rem);line-height:1.05;letter-spacing:-.02em;font-weight:700;color:#fff;margin:14px 0 18px}
 .hero .role{font-size:1.4rem;color:#b9c8da;max-width:600px}
 .hero .role b{color:#fff;font-weight:600}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
@@ -73,10 +88,10 @@ header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backd
 
 /* metrics strip */
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--silver)}
-.metric{padding:30px 24px;border-right:1px solid var(--silver);background:var(--glacier)}
+.metric{padding:36px 28px;border-right:1px solid var(--silver);background:var(--glacier)}
 .metric:last-child{border-right:0}
-.metric b{display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:2.8rem;font-weight:700;letter-spacing:-.03em;color:var(--blue)}
-.metric span{color:var(--sub);font-size:1.05rem}
+.metric b{display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:800;font-size:3.2rem;font-weight:700;letter-spacing:-.03em;color:var(--blue)}
+.metric span{color:var(--ink);font-size:1.15rem;line-height:1.5;display:block;margin-top:6px}
 @media (max-width:760px){.metrics{grid-template-columns:1fr 1fr}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 
 /* sections */
@@ -84,14 +99,14 @@ section.s{padding:96px 0}
 section.soft{background:var(--soft)}
 .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
 .head .mono{color:var(--blue)}
-.head h2{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(2.3rem,4.8vw,3.4rem);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin-top:8px;max-width:720px}
-.head p{color:var(--sub);max-width:440px}
+.head h2{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:clamp(2.3rem,4.8vw,3.4rem);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin-top:8px;max-width:720px}
+.head p{color:#1f2226;max-width:440px}
 
 /* about */
 .about{display:grid;grid-template-columns:1.2fr .8fr;gap:56px}
-.about .lead{font-family:Montserrat,sans-serif;font-style:italic;font-weight:500;font-size:1.6rem;line-height:1.45;color:var(--ink);margin-bottom:22px}
+.about .lead{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-style:italic;font-weight:500;font-size:1.6rem;line-height:1.45;color:var(--ink);margin-bottom:22px}
 .about p+p{margin-top:14px}
-.about p{color:var(--sub)}
+.about p{color:#1f2226;text-align:justify;hyphens:auto}
 .facts{border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .facts div{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:15px 18px;border-bottom:1px solid var(--line);font-size:1.02rem}
 .facts div:last-child{border-bottom:0}
@@ -106,14 +121,14 @@ section.soft{background:var(--soft)}
 .case .media{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--soft);aspect-ratio:16/10}
 .case .media img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .case:hover .media img{transform:scale(1.03)}
-.case .num{font-family:Montserrat,sans-serif;color:var(--blue);font-size:.8rem}
-.case h3{font-family:Montserrat,sans-serif;font-weight:700;font-size:2.1rem;line-height:1.2;letter-spacing:-.02em;margin:6px 0 16px}
+.case .num{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--blue);font-size:.95rem;font-weight:600}
+.case h3{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:2.3rem;line-height:1.2;letter-spacing:-.02em;margin:6px 0 16px}
 .cps{display:grid;gap:12px}
-.cps div{display:grid;grid-template-columns:120px 1fr;gap:12px;font-size:1.08rem}
-.cps dt{font-family:Montserrat,sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);padding-top:3px}
-.cps dd{color:var(--ink)}
+.cps div{display:grid;grid-template-columns:122px 1fr;gap:14px;font-size:1.12rem}
+.cps dt{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);padding-top:3px}
+.cps dd{color:var(--ink);text-align:justify;hyphens:auto;word-spacing:-.02em}
 .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
-.stack span{font-size:.92rem;font-weight:500;padding:4px 10px;border-radius:6px;background:var(--sky);color:var(--blue)}
+.stack span{font-size:1rem;font-weight:500;padding:4px 10px;border-radius:6px;background:var(--sky);color:var(--blue)}
 .case .links{margin-top:14px;display:flex;gap:18px;font-weight:600;font-size:.92rem}
 .result{display:flex;gap:18px;margin-top:16px;flex-wrap:wrap}
 .result div{border-left:3px solid var(--blue);padding-left:10px}
@@ -123,7 +138,7 @@ section.soft{background:var(--soft)}
 
 /* work grid */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.filters button{font:500 1rem "Open Sans",sans-serif;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--sub);cursor:pointer}
+.filters button{font:500 1rem "Helvetica Neue",Helvetica,Arial,sans-serif;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--sub);cursor:pointer}
 .filters button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media (max-width:980px){.grid{grid-template-columns:1fr 1fr}}
@@ -133,9 +148,9 @@ section.soft{background:var(--soft)}
 .tile .im{aspect-ratio:16/10;overflow:hidden;background:var(--soft)}
 .tile .im img{width:100%;height:100%;object-fit:cover}
 .tile .tx{padding:16px 18px 18px}
-.tile .tg{font-family:Montserrat,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.tile .tg{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
 .tile h3{font-size:1.25rem;line-height:1.35;margin:4px 0 6px}
-.tile p{font-size:1rem;color:var(--sub)}
+.tile p{font-size:1.05rem;color:#1f2226;text-align:justify;hyphens:auto}
 .tile.hide{display:none}
 
 /* map */
@@ -151,12 +166,12 @@ section.soft{background:var(--soft)}
 
 /* experience */
 .xp{border-top:1px solid var(--line)}
-.job{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
-.job .when{font-family:Montserrat,sans-serif;font-size:.88rem;color:var(--sub);padding-top:3px}
-.job h3{font-size:1.35rem}
-.job .org{color:var(--sub);font-size:1rem}
-.job ul{margin:8px 0 0 18px;font-size:1.05rem}
-.job li{margin:3px 0}
+.job{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}
+.job .when{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1rem;font-weight:700;color:var(--blue);padding-top:3px}
+.job h3{font-size:1.45rem;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700}
+.job .org{color:var(--sub);font-size:1.08rem;margin-top:2px;font-weight:600}
+.job ul{margin:10px 0 0 20px;font-size:1.12rem;line-height:1.65;color:#141414;font-weight:500}
+.job li{margin:3px 0;text-align:justify;hyphens:auto}
 .promo{font-size:.7rem;font-weight:700;color:var(--teal);background:#f4e4e7;padding:2px 8px;border-radius:99px;margin-left:8px;vertical-align:middle}
 @media (max-width:700px){.job{grid-template-columns:1fr;gap:4px}}
 
@@ -182,7 +197,7 @@ section.soft{background:var(--soft)}
 
 /* contact */
 .contact{background:var(--navy);color:#cfd9e6;text-align:center;padding:96px 0}
-.contact h2{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(2.4rem,6vw,3.8rem);color:#fff;letter-spacing:-.03em;line-height:1.1}
+.contact h2{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:clamp(2.4rem,6vw,3.8rem);color:#fff;letter-spacing:-.03em;line-height:1.1}
 .contact p{max-width:560px;margin:14px auto 28px}
 .contact .cta{justify-content:center}
 footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;padding:0 0 30px}
@@ -199,7 +214,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
 .where{position:absolute;right:24px;bottom:22px;z-index:3;display:flex;align-items:center;gap:10px;background:rgba(20,20,20,.72);backdrop-filter:blur(8px);color:#fff;padding:10px 14px;border-radius:10px;font-size:.88rem;border:1px solid rgba(255,255,255,.15)}
 .where i{width:8px;height:8px;border-radius:50%;background:#e0566b;box-shadow:0 0 0 4px rgba(224,86,107,.3);animation:pulse 2s infinite}
 .where b{font-weight:600}
-.scrolldown{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;color:#fff;opacity:.7;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;font-family:Montserrat,sans-serif}
+.scrolldown{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;color:#fff;opacity:.7;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
 @media (max-width:860px){.where{left:16px;right:16px;bottom:14px}.scrolldown{display:none}.hero{min-height:auto}}
 
 /* before/after slider */
@@ -215,27 +230,121 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
 
 /* pipeline stepper */
 .pipe{margin-top:56px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px}
-.pipe h3{font-family:Montserrat,sans-serif;font-weight:700;font-size:1.7rem;margin-bottom:4px}
+.pipe h3{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:1.7rem;margin-bottom:4px}
 .pipe .sub{color:var(--sub);margin-bottom:22px}
 .steps{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;position:relative}
 .steps:before{content:"";position:absolute;left:4%;right:4%;top:22px;height:2px;background:var(--line)}
 .steps .fillline{position:absolute;left:4%;top:22px;height:2px;background:var(--blue);width:0;transition:width .5s}
 .step{position:relative;text-align:center;cursor:pointer;background:none;border:0;font:inherit;color:inherit;padding:0}
-.step .dot{width:44px;height:44px;border-radius:50%;margin:0 auto 10px;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-family:Montserrat,sans-serif;font-weight:500;transition:.3s;position:relative;z-index:1}
+.step .dot{width:44px;height:44px;border-radius:50%;margin:0 auto 10px;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:500;transition:.3s;position:relative;z-index:1}
 .step.on .dot,.step.done .dot{background:var(--blue);border-color:var(--blue);color:#fff}
 .step span{font-size:1rem;font-weight:600;display:block;line-height:1.3}
 .stepbody{margin-top:22px;padding:20px 22px;border-radius:12px;background:var(--glacier);min-height:96px}
-.stepbody b{display:block;font-size:1.1rem;margin-bottom:4px}
+.stepbody b{display:block;font-size:1.2rem;margin-bottom:4px}
+.stepbody{text-align:justify;font-size:1.1rem}
 @media (max-width:760px){.steps{grid-template-columns:repeat(3,1fr);row-gap:18px}.steps:before,.steps .fillline{display:none}}
 
 /* globe */
 #map{height:520px}
+.pinlbl{background:#141414;color:#fff;font:600 13px "Helvetica Neue",Helvetica,Arial,sans-serif;padding:4px 10px;border-radius:8px;white-space:nowrap}
 .mk{width:16px;height:16px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 2px var(--blue),0 4px 10px rgba(0,0,0,.35);cursor:pointer}
-.maplibregl-popup-content{font:15px/1.4 "Open Sans",sans-serif;border-radius:10px;padding:12px 14px}
+.maplibregl-popup-content{font:15px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;border-radius:10px;padding:12px 14px}
 @media (max-width:860px){#map{height:380px}}
 
-.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
-.rv.in{opacity:1;transform:none}
+
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:860px){.edu{grid-template-columns:1fr}}
+.ecard{align-self:start;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s;text-align:left;font:inherit;color:inherit;padding:0;display:block;width:100%}
+.ecard:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(20,20,20,.12)}
+.ecard .pic{aspect-ratio:16/8;position:relative;overflow:hidden}
+.ecard .pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ecard:hover .pic img{transform:scale(1.05)}
+.ecard .badge{position:absolute;left:16px;bottom:16px;background:var(--blue);color:#fff;font:700 .9rem "Helvetica Neue",Helvetica,Arial,sans-serif;padding:6px 12px;border-radius:8px}
+.ecard .tx{padding:22px 24px}
+.ecard h3{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1.5rem}
+.ecard .deg{font-weight:600;margin-top:4px}
+.ecard .yr{color:var(--blue);font:700 .95rem "Helvetica Neue",Helvetica,Arial,sans-serif;margin-top:4px}
+.ecard .more{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.ecard.open .more{max-height:400px}
+.ecard ul{margin:14px 0 0 20px}
+.ecard li{margin:4px 0}
+.ecard .hint{margin-top:12px;font-size:.95rem;color:var(--blue);font-weight:600}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(10,10,10,.9);display:none;align-items:center;justify-content:center;z-index:3000;padding:24px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:min(1200px,94vw);max-height:80vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#lb p{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:#fff;font:600 1.05rem "Helvetica Neue",Helvetica,Arial,sans-serif;padding:0 20px}
+#lb button{position:absolute;top:18px;right:22px;background:none;border:0;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1}
+.tile .im,.case .media{cursor:zoom-in}
+/* tilt */
+.tile{transform-style:preserve-3d;will-change:transform}
+/* toast */
+#toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(30px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:10px;font-weight:600;opacity:0;transition:.3s;z-index:3000;pointer-events:none}
+#toast.on{opacity:1;transform:translateX(-50%)}
+
+
+/* what I do */
+.whatdo{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start}
+@media (max-width:900px){.whatdo{grid-template-columns:1fr}}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:560px){.tools{grid-template-columns:repeat(3,1fr)}}
+.tool{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 8px;text-align:center;font-size:.9rem;font-weight:600;transition:transform .25s,box-shadow .25s,color .25s}
+.tool .ti{display:block;width:34px;height:34px;margin:0 auto 8px;color:var(--blue)}
+.tool:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 14px 30px rgba(20,20,20,.12);color:var(--blue)}
+.caps{list-style:none}
+.caps li{padding:16px 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+.caps b{color:var(--blue)}
+/* experience cards */
+.jgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px}
+.jcard{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative;transition:transform .3s,box-shadow .3s}
+.jcard:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(20,20,20,.14)}
+.jh{height:110px;display:flex;align-items:flex-start;justify-content:center;padding-top:22px}
+.jh1{background:linear-gradient(135deg,#7a1f2e,#a52d42)}.jh2{background:linear-gradient(135deg,#9aa0a8,#c4c8ce)}.jh3{background:linear-gradient(135deg,#141414,#3a3d42)}.jh4{background:linear-gradient(135deg,#7fa8bb,#b9d3de)}
+.jorg,.jorg a{color:#fff;font-weight:700;font-size:1.1rem;text-align:center;padding:0 16px}
+.jlogo img{width:100%;height:100%;object-fit:contain;border-radius:50%;padding:6px}
+.elogo{position:absolute;right:16px;bottom:16px;width:80px;height:80px;border-radius:50%;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.25);overflow:hidden;display:grid;place-items:center}
+.elogo img{width:100%;height:100%;object-fit:contain;padding:5px}
+.ges{display:inline-flex;align-items:center;gap:8px}.ges img{height:28px;width:auto}
+.jlogo{overflow:hidden;width:76px;height:76px;border-radius:50%;background:#fff;border:4px solid #fff;box-shadow:0 8px 20px rgba(0,0,0,.18);position:absolute;left:50%;top:72px;transform:translateX(-50%);display:grid;place-items:center;font-weight:800;color:var(--blue);font-size:1.1rem}
+.jb{padding:52px 24px 26px;text-align:center}
+.jb h3{font-size:1.3rem;line-height:1.3}
+.jwhen{font-weight:700;color:var(--blue);margin:6px 0 12px}
+.jb ul{text-align:left;margin-left:20px;font-size:1.02rem}
+.jb li{margin:4px 0}
+/* publication cards */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.pcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;color:var(--ink);transition:transform .3s,box-shadow .3s,border-color .3s}
+.pcard:hover{text-decoration:none;transform:translateY(-6px);box-shadow:0 22px 48px rgba(20,20,20,.12);border-color:var(--blue)}
+.pcard h3{font-size:1.25rem;line-height:1.35}
+.pcard .au{margin-top:12px;color:var(--sub)}
+.pcard .jn{font-style:italic;margin-top:8px;color:var(--sub)}
+.pcard .st{align-self:flex-start;margin-top:auto;transform:translateY(14px);background:var(--blue);color:#fff;font-weight:700;font-size:.9rem;padding:6px 14px;border-radius:999px}
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.acard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .25s}
+.acard:hover{transform:translateY(-4px)}
+.acard .trophy{font-size:1.5rem}
+.acard b{display:block;margin-top:6px;font-size:1.08rem}
+.acard span{color:var(--sub);font-size:.95rem}
+/* contact */
+.contact{text-align:left}
+.cgrid{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+@media (max-width:860px){.cgrid{grid-template-columns:1fr}.env{display:none}}
+.contact h2{margin:0}
+.lead2{text-transform:uppercase;letter-spacing:.03em;font-weight:600;color:#e6edf6;margin:16px 0 24px;max-width:640px}
+.big{display:block;color:#fff;font-size:clamp(1.4rem,3vw,2rem);font-weight:600;margin:6px 0;word-break:break-word}
+.big:hover{color:#f0a7b3;text-decoration:none}
+.socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.sc{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;border:0;cursor:pointer;transition:transform .25s}
+.sc:hover{transform:translateY(-5px) scale(1.08);text-decoration:none}
+.sc svg{width:24px;height:24px}
+.env svg{width:100%;max-width:340px}
+.float{animation:flt 4s ease-in-out infinite}
+@keyframes flt{50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.float{animation:none}}
+
+.rv{opacity:1}
+
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}html{scroll-behavior:auto}.status:before{animation:none}}
 </style>
 </head>
@@ -248,7 +357,9 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
       <li><a href="#about">About</a></li>
       <li><a href="#work">Case studies</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#map-sec">Map</a></li>
+      <li><a href="#map-sec">Journey</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -289,6 +400,18 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
   <div class="metric"><b data-count="6" data-suffix="+">0</b><span>publications and technical articles</span></div>
   <div class="metric"><b>0.71</b><span>F1 for building detection with SAM + LiDAR</span></div>
 </div>
+
+<!-- COMPETITION WINS -->
+<section class="wins" id="wins">
+  <div class="wrap">
+    <div class="head rv"><div><div class="mono">Competitions</div><h2>Competition wins</h2></div><p>Ideas and maps that placed first and second.</p></div>
+    <div class="wgrid">
+      <article class="win w1 rv"><span class="big">1</span><span class="medal">&#129351;</span><span class="place">Winner</span><h3>Geo-IdeaThon</h3><p>Anticipatory action for forest fire management: a geospatial early-warning approach.</p><a href="https://drive.google.com/file/d/14Qgzcqb1wo29c8UKS9s6_kMLHbFrvMh5/view?usp=sharing" target="_blank" rel="noopener">View award &rarr;</a></article>
+      <article class="win w2 rv"><span class="big">2</span><span class="medal">&#129352;</span><span class="place">First Runner-up</span><h3>Geo Idea Contest</h3><p>Enhancing crop monitoring using UAV.</p><a href="https://drive.google.com/file/d/1Qx0uCe9L9J742tSZncuM8go0JNtO3w2i/view?usp=sharing" target="_blank" rel="noopener">View award &rarr;</a></article>
+      <article class="win w3 rv"><span class="big">2</span><span class="medal">&#129352;</span><span class="place">Runner-up</span><h3>Esri India ArcGIS Map Competition</h3><p>2024</p></article>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section class="s" id="about">
@@ -355,9 +478,22 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
 
 
     <article class="case rv">
+      <div class="media"><img src="kmc-geoportal.jpg" alt="KMC Geoportal web map showing the 32 wards of Kathmandu with land use, roads and layer controls"></div>
+      <div>
+        <div class="num">02 &middot; Kathmandu Metropolitan City &middot; Web GIS</div>
+        <h3>KMC Geoportal: the city's public web map</h3>
+        <dl class="cps">
+          <div><dt>What it is</dt><dd>The official geoportal of Kathmandu Metropolitan City, built for its Urban Management Department. Anyone can explore the city's spatial data for all 32 wards in a browser.</dd></div>
+          <div><dt>Features</dt><dd>Bilingual interface (English and Nepali), filter by ward, and layers for land use, administrative boundaries, wards, roads, and cadastral parcels. Every layer can be switched on or off and has its own transparency slider. Basemaps: OpenStreetMap, Google Hybrid, and Google Terrain.</dd></div>
+          <div><dt>My role</dt><dd>Contributed to building the geoportal as part of the KMC GIS team.</dd></div>
+        </dl>
+        <div class="stack"><span>Web GIS</span><span>Leaflet</span><span>JavaScript</span><span>Municipal data</span><span>Bilingual UI</span></div>
+      </div>
+    </article>
+    <article class="case rv">
       <div class="media"><img src="sam-lidar.jpg" alt="Building detection maps comparing photo-only SAM with photo plus LiDAR"></div>
       <div>
-        <div class="num">02 &middot; University of North Texas</div>
+        <div class="num">03 &middot; University of North Texas</div>
         <h3>Can a photo-trained AI read 3D data?</h3>
         <dl class="cps">
           <div><dt>Question</dt><dd>Segment Anything works well on photos. Does it also work on LiDAR?</dd></div>
@@ -371,7 +507,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
     <article class="case rv">
       <div class="media"><img src="3d-buildings-green.jpg" alt="3D building models of the UNT campus extracted from airborne LiDAR in ArcGIS Pro"></div>
       <div>
-        <div class="num">03 &middot; Denton, Texas</div>
+        <div class="num">04 &middot; Denton, Texas</div>
         <h3>3D buildings from airborne LiDAR</h3>
         <dl class="cps">
           <div><dt>Goal</dt><dd>Turn a raw LiDAR point cloud into a 3D city model.</dd></div>
@@ -381,23 +517,38 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
       </div>
     </article>
     <article class="case rv">
+      <div class="media"><img src="potato-yield-map.jpg" alt="Map of estimated potato yield per plot in kilograms per square metre"></div>
+      <div>
+        <div class="num">05 &middot; Dhulikhel, Nepal &middot; Published</div>
+        <h3>Potato yield estimation from UAV imagery and machine learning</h3>
+        <dl class="cps">
+          <div><dt>Goal</dt><dd>Replace slow, manual yield counts with a drone-based way to estimate potato yield on smallholder farms.</dd></div>
+          <div><dt>Approach</dt><dd>Flew RGB (DJI Mavic 2 Pro) and multispectral (DJI Phantom 4 Multispectral) drones over a 3.7-hectare field across five growth stages. Set up 9 ground control points with differential GPS and harvested 80 sample plots for ground truth. Computed 20 vegetation indices and tested regression and 7 machine learning models.</dd></div>
+          <div><dt>Result</dt><dd>Multi-temporal multiple linear regression reached R&sup2; = 82.6%; Gradient Boosting was the best ML model (R&sup2; = 76.6%). Multispectral indices such as the red-edge chlorophyll index predicted yield better than RGB indices.</dd></div>
+          <div><dt>Team</dt><dd>Final-year project with four classmates, Kathmandu University (2025). Supervised by Dr. Uma Shankar Panday and Er. Sujan Nepali.</dd></div>
+        </dl>
+        <div class="stack"><span>Multispectral UAV</span><span>Pix4D</span><span>DGPS / GCPs</span><span>Python &middot; scikit-learn</span><span>Gradient Boosting</span></div>
+        <div class="links"><a href="https://www.jstage.jst.go.jp/article/gisideas/2/2/2_9/_article/-char/ja/" target="_blank" rel="noopener">Read the paper &rarr;</a></div>
+      </div>
+    </article>
+    <article class="case rv">
       <div class="media"><img src="rice-ortho.jpg" alt="Multispectral drone orthomosaic of rice plots over satellite imagery near Janakpur"></div>
       <div>
-        <div class="num">04 &middot; Janakpur, Nepal</div>
+        <div class="num">06 &middot; Janakpur, Nepal</div>
         <h3>Rice yield estimation with a multispectral drone</h3>
         <dl class="cps">
           <div><dt>Goal</dt><dd>Predict the yield of rice farms in Janakpur before harvest, for precision agriculture.</dd></div>
           <div><dt>Approach</dt><dd>Flew a multispectral UAV over the rice plots, built an orthomosaic, and trained machine learning models on the spectral data to estimate yield.</dd></div>
-          <div><dt>Output</dt><dd>A rice study shared as an ArcGIS StoryMap, and a related potato yield study published in the GIS-IDEAs Journal.</dd></div>
+          <div><dt>Output</dt><dd>A rice study shared as an ArcGIS StoryMap.</dd></div>
         </dl>
         <div class="stack"><span>Multispectral UAV</span><span>Orthomosaic</span><span>Machine learning</span><span>Precision agriculture</span></div>
-        <div class="links"><a href="https://lnkd.in/dNv4zrtu" target="_blank" rel="noopener">Rice project &rarr;</a><a href="https://www.jstage.jst.go.jp/article/gisideas/2/2/2_9/_article/-char/ja/" target="_blank" rel="noopener">Potato paper &rarr;</a></div>
+        <div class="links"><a href="https://lnkd.in/dNv4zrtu" target="_blank" rel="noopener">Rice project &rarr;</a></div>
       </div>
     </article>
     <article class="case rv">
       <div class="media"><img src="dastaa.jpg" alt="Illustration of buildings rated high, medium, and low flood and landslide risk"></div>
       <div>
-        <div class="num">05 &middot; NAXA Pvt. Ltd.</div>
+        <div class="num">07 &middot; NAXA Pvt. Ltd.</div>
         <h3>DASTAA: data for anticipatory disaster action</h3>
         <dl class="cps">
           <div><dt>Context</dt><dd>DASTAA (Digital and Spatial Technologies for Anticipatory Action) is NAXA's climate-risk platform. It rates households and facilities as high, medium, or low risk so warnings reach the right people first.</dd></div>
@@ -429,6 +580,9 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
       <article class="tile rv" data-c="rs hazard"><div class="im"><img src="uhi.jpg" alt="Land surface temperature map of Kathmandu" loading="lazy"></div><div class="tx"><div class="tg">Remote sensing &middot; Published</div><h3>Urban heat island of Kathmandu</h3><p>Land surface temperature from satellite imagery. <a href="https://www.nepjol.info/index.php/jlmge/article/view/83220" target="_blank" rel="noopener">Paper &rarr;</a></p></div></article>
       <article class="tile rv" data-c="rs"><div class="im"><img src="live-oak.jpg" alt="Map of the value of oil firms that own wells in Live Oak County, Texas" loading="lazy"></div><div class="tx"><div class="tg">Cartography</div><h3>Oil firms in Live Oak County, Texas</h3><p>Graduated-symbol map of working-interest value, with Eagle Ford Shale and a U.S. inset.</p></div></article>
       <article class="tile rv" data-c="hazard 3d"><div class="im"><img src="flood-3d.jpg" alt="3D terrain showing flood water in valleys" loading="lazy"></div><div class="tx"><div class="tg">Hazards &middot; 3D</div><h3>Flood inundation in 3D</h3><p>Flood inundation over a DEM, visualized in 3D.</p></div></article>
+      <article class="tile rv" data-c="rs"><div class="im"><img src="potato-yield-map.jpg" alt="Yield map of potato plots in kilograms per square metre" loading="lazy"></div><div class="tx"><div class="tg">UAV &middot; Machine learning</div><h3>Potato yield map</h3><p>Plot-level potato yield (kg/m&sup2;) estimated from multispectral UAV imagery with machine learning. Published in the GIS-IDEAs Journal. <a href="https://www.jstage.jst.go.jp/article/gisideas/2/2/2_9/_article/-char/ja/" target="_blank" rel="noopener">Paper &rarr;</a></p></div></article>
+      <article class="tile rv" data-c="rs"><div class="im"><img src="potato-ortho-yield.jpg" alt="Orthophoto of the potato site compared with its yield map" loading="lazy"></div><div class="tx"><div class="tg">UAV &middot; Agriculture</div><h3>Orthophoto vs yield map</h3><p>The drone orthophoto of the potato site next to the estimated yield for each plot.</p></div></article>
+      <article class="tile rv" data-c="rs"><div class="im"><img src="potato-field.jpg" alt="GNSS receiver on a tripod in the potato field" loading="lazy"></div><div class="tx"><div class="tg">Fieldwork</div><h3>Ground control at the potato site</h3><p>One of the 9 ground control points set with differential GPS to georeference the drone imagery.</p></div></article>
       <article class="tile rv" data-c="rs"><div class="im"><img src="rice-plots.jpg" alt="Drone view of rice research plots from above" loading="lazy"></div><div class="tx"><div class="tg">UAV &middot; Agriculture</div><h3>Rice plots from the drone</h3><p>Top-down drone view of the rice plots used in the yield estimation study. <a href="https://lnkd.in/dNv4zrtu" target="_blank" rel="noopener">Project &rarr;</a></p></div></article>
       <article class="tile rv" data-c="city rs"><div class="im"><img src="drone-survey.jpg" alt="Drone survey map of Kathmandu" loading="lazy"></div><div class="tx"><div class="tg">UAV &middot; KMC</div><h3>Drone mapping of Kathmandu</h3><p>Drone survey and digital database preparation for the city.</p></div></article>
       <article class="tile rv" data-c="city"><div class="im"><img src="road-extraction.jpg" alt="AI-extracted roads in Kathmandu" loading="lazy"></div><div class="tx"><div class="tg">GeoAI &middot; Roads</div><h3>AI road extraction &amp; road naming</h3><p>Road network extraction with AI, road naming, and route allocation.</p></div></article>
@@ -436,7 +590,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
       <article class="tile rv" data-c="city"><div class="im"><img src="cctv.jpg" alt="Map of CCTV cameras in Kathmandu" loading="lazy"></div><div class="tx"><div class="tg">Public safety</div><h3>CCTV mapping</h3><p>Mapped CCTV camera locations across Kathmandu Metropolitan City.</p></div></article>
       <article class="tile rv" data-c="rs"><div class="im"><img src="rice-drone.jpg" alt="Multispectral drone and flight-planning tablet beside a rice field" loading="lazy"></div><div class="tx"><div class="tg">UAV &middot; Field equipment</div><h3>Multispectral drone for the rice survey</h3><p>Planned automated flights on a tablet and captured multispectral imagery of the rice plots.</p></div></article>
       <article class="tile rv" data-c="city"><div class="im"><img src="waste.jpg" alt="Waste disposal planning map" loading="lazy"></div><div class="tx"><div class="tg">Spatial analysis</div><h3>Waste disposal site allocation</h3><p>Allocated waste disposal sites for Kathmandu Metropolitan City.</p></div></article>
-      <article class="tile rv" data-c="web"><div class="im"><img src="kmc-geoportal.jpg" alt="KMC Geoportal" loading="lazy"></div><div class="tx"><div class="tg">Web GIS</div><h3>KMC Geoportal</h3><p>Geoportal of Kathmandu Metropolitan City. <a href="https://github.com/123sudhi/KMC-Geoportal" target="_blank" rel="noopener">Code &rarr;</a></p></div></article>
+      <article class="tile rv" data-c="web"><div class="im"><img src="kmc-geoportal.jpg" alt="KMC Geoportal" loading="lazy"></div><div class="tx"><div class="tg">Web GIS</div><h3>KMC Geoportal</h3><p>Public web map of Kathmandu Metropolitan City, in English and Nepali. See case study 02.</p></div></article>
       <article class="tile rv" data-c="hazard"><div class="im"><img src="urban-flood.jpg" alt="Urban flood extent map" loading="lazy"></div><div class="tx"><div class="tg">Hazards</div><h3>Urban flood extent</h3><p>Urban flood extent mapping project.</p></div></article>
     </div>
 
@@ -452,8 +606,45 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
 <!-- MAP -->
 <section class="s soft" id="map-sec">
   <div class="wrap">
-    <div class="head rv"><div><div class="mono">Work map</div><h2>Where my work happened</h2></div><p>A 3D globe of my work, from Kathmandu to Denton. Pick a place and the globe flies there.</p></div>
-    <div class="mapbox rv"><div class="list" id="places"></div><div id="map" role="img" aria-label="Interactive 3D globe of Sudipta's work locations"></div></div>
+    <div class="head rv"><div><div class="mono">My journey</div><h2>From Kathmandu to Denton</h2></div><p>My path from Nepal to Texas. Pick a place to zoom in.</p></div>
+    <div class="mapbox rv"><div class="list" id="places"></div><div id="map" role="img" aria-label="Map of the route from Kathmandu, Nepal to Denton, Texas"></div></div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="s" id="education">
+  <div class="wrap">
+    <div class="head rv"><div><div class="mono">Education</div><h2>Where I studied</h2></div><p>Click a card to see more.</p></div>
+    <div class="edu">
+      <button class="ecard rv" aria-expanded="false">
+        <div class="pic"><img src="denton.jpg" alt="Denton, Texas, home of the University of North Texas"><span class="badge">Now</span><span class="elogo" style="background:#00853e;width:118px;height:62px;border-radius:12px"><img src="logo-unt.jpg" alt="UNT logo"></span></div>
+        <div class="tx"><h3>University of North Texas</h3><div class="deg">Master of Science in Geography</div><div class="yr">Aug 2026 &ndash; Present &middot; Denton, Texas</div>
+          <div class="more"><ul><li>Voertman-Ardoin Graduate Fellowship</li><li>Graduate Research Assistant, LiDAR Lab</li><li>Graduate Teaching Assistant, GIS Help Center Lab (GEOG 3500, 115 students)</li><li>Member, Aerial Remote Sensing Club</li></ul></div>
+          <div class="hint">Show details &darr;</div></div>
+      </button>
+      <button class="ecard rv" aria-expanded="false">
+        <div class="pic"><img src="ku.jpg" alt="Kathmandu University main building"><span class="badge">CGPA 3.91</span><span class="elogo"><img src="logo-ku.png" alt="Kathmandu University logo"></span></div>
+        <div class="tx"><h3>Kathmandu University</h3><div class="deg">Bachelor of Engineering in Geomatics Engineering</div><div class="yr">Dec 2020 &ndash; Nov 2025 &middot; Dhulikhel, Nepal</div>
+          <div class="more"><ul><li>CGPA 3.91 / 4.0 &middot; Merit-Based Scholarship</li><li>FIG Foundation Young Surveyor Grant (2024)</li><li>New Colombo Plan survey practicum, University of Southern Queensland (2024)</li><li class="ges"><img src="logo-ges.jpg" alt="Geomatics Engineering Society logo">General Secretary, Geomatics Engineering Society</li></ul></div>
+          <div class="hint">Show details &darr;</div></div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I DO -->
+<section class="s soft" id="skills">
+  <div class="wrap">
+    <div class="head rv"><div><div class="mono">What I do</div><h2>Tools &amp; skills</h2></div></div>
+    <div class="whatdo">
+      <div class="tools rv"><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span>ArcGIS Pro</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5"/></svg></span><span>QGIS</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m13 7 4 4M4 20l4-4"/><rect x="9" y="6" width="9" height="5" rx="1" transform="rotate(45 13.5 8.5)"/><path d="M3 13a8 8 0 0 0 8 8"/></svg></span><span>Earth Engine</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span><span>Python</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 3 3h0V4zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-3 3V4z"/></svg></span><span>PyTorch</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 3 3h0V4zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-3 3V4z"/></svg></span><span>TensorFlow</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 3 3h0V4zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-3 3V4z"/></svg></span><span>Segment Anything</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M3 7l9 5 9-5"/></svg></span><span>LiDAR</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M3 7l9 5 9-5"/></svg></span><span>Digital Twins</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="5" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M7 7l2 2M17 7l-2 2M7 17l2-2M17 17l-2-2"/></svg></span><span>UAV / Drone</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span><span>PostGIS / SQL</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span><span>JavaScript</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span>Leaflet</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1 0 8z"/></svg></span><span>ArcGIS Online</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M8 21l4-12 4 12M6 21h12"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg></span><span>DGPS / Total Station</span></div><div class="tool"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span>OpenStreetMap</span></div></div>
+      <ul class="caps rv">
+        <li><b>GeoAI &amp; feature extraction</b> &ndash; deep learning to find buildings and roads in imagery and LiDAR.</li>
+        <li><b>LiDAR &amp; 3D mapping</b> &ndash; point clouds, DTMs, and 3D building and city models.</li>
+        <li><b>UAV &amp; remote sensing</b> &ndash; drone surveys, multispectral imagery, and satellite analysis.</li>
+        <li><b>Municipal GIS &amp; web</b> &ndash; city databases, addressing, web portals, and field data apps.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -461,72 +652,54 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
 <section class="s" id="experience">
   <div class="wrap">
     <div class="head rv"><div><div class="mono">Experience</div><h2>Where I've worked</h2></div><p><a href="Sudipta_Poudel_CV.pdf" target="_blank" rel="noopener">Full CV (PDF) &rarr;</a></p></div>
-    <div class="xp">
-      <div class="job rv"><div class="when">Aug 2026 &ndash; Now</div><div><h3>Graduate Research Assistant, LiDAR Lab</h3><div class="org">University of North Texas</div><ul><li>Study how well photo-trained AI models such as SAM detect buildings from LiDAR data.</li><li>Prepare and classify point clouds, build training datasets, and evaluate results.</li></ul></div></div>
-      <div class="job rv"><div class="when">Aug 2026 &ndash; Now</div><div><h3>Graduate Teaching Assistant, GIS Help Center Lab</h3><div class="org">University of North Texas</div><ul><li>Help students with GIS software, data, and lab assignments; support 115 students in GEOG 3500.</li></ul></div></div>
-      <div class="job rv"><div class="when">Jan 2026 &ndash; Jul 2026</div><div><h3>GIS and GeoAI Engineer</h3><div class="org"><a href="https://kathmandu.gov.np/np" target="_blank" rel="noopener">Kathmandu Metropolitan City</a></div><ul><li>Extracted about 300,000 building footprints across 32 wards with GeoAI for the city's digital addressing program.</li><li>Front-end development of the Integrated Municipal Information System; house numbering, road extraction, CCTV, flood, and waste mapping.</li></ul></div></div>
-      <div class="job rv"><div class="when">Nov 2025 &ndash; Jan 2026</div><div><h3>Technical Project Management Intern</h3><div class="org"><a href="https://naxa.com.np/" target="_blank" rel="noopener">NAXA Pvt. Ltd.</a></div><ul><li>Worked mainly on DASTAA, producing AI-assisted geospatial data for multi-hazard preparedness planning; coordinated mapathons.</li></ul></div></div>
-      <div class="job rv"><div class="when">Mar 2025 &ndash; Nov 2025</div><div><h3>GIS Engineer Intern <span class="promo">Promoted</span></h3><div class="org"><a href="https://kathmandu.gov.np/np" target="_blank" rel="noopener">Kathmandu Metropolitan City</a></div><ul><li>Digital twin modeling, GeoAI feature extraction, and LiDAR heritage research.</li></ul></div></div>
-      <div class="job rv"><div class="when"></div><div><h3>LiDAR Image Processing Intern</h3><div class="org"><a href="https://geo3dmodelling.com.np/" target="_blank" rel="noopener">Geo3D Modelling Pvt. Ltd.</a></div><ul><li>Processed LiDAR data and imagery for 3D modeling projects.</li></ul></div></div>
-      <div class="job rv"><div class="when">Apr 2022 &ndash; May 2024</div><div><h3>Project Member, WASH Infrastructure Mapping</h3><div class="org">Dhulikhel Municipality</div><ul><li>Mapped water, sanitation, and hygiene infrastructure in GIS.</li></ul></div></div>
+    <div class="jgrid">
+<article class="jcard rv"><div class="jh jh1"><div class="jorg">University of North Texas</div></div><div class="jlogo" style="background:#00853e;border-color:#fff"><img src="logo-unt.jpg" alt="UNT logo"></div><div class="jb"><h3>Graduate Research Assistant, LiDAR Lab</h3><div class="jwhen">Aug 2026 &ndash; Present</div><ul><li>Study how well photo-trained AI models such as SAM detect buildings from LiDAR data.</li><li>Prepare and classify point clouds, build training datasets, and evaluate results.</li></ul></div></article>
+<article class="jcard rv"><div class="jh jh2"><div class="jorg">University of North Texas</div></div><div class="jlogo" style="background:#00853e;border-color:#fff"><img src="logo-unt.jpg" alt="UNT logo"></div><div class="jb"><h3>Graduate Teaching Assistant, GIS Help Center Lab</h3><div class="jwhen">Aug 2026 &ndash; Present</div><ul><li>Help students with GIS software, data, and lab assignments.</li><li>Support 115 undergraduate students in GEOG 3500.</li></ul></div></article>
+<article class="jcard rv"><div class="jh jh3"><div class="jorg"><a href="https://kathmandu.gov.np/np" target="_blank" rel="noopener">Kathmandu Metropolitan City</a></div></div><div class="jlogo"><img src="logo-kmc.jpg" alt="Kathmandu Metropolitan City logo"></div><div class="jb"><h3>GIS and GeoAI Engineer</h3><div class="jwhen">Jan 2026 &ndash; Jul 2026</div><ul><li>Extracted about 300,000 building footprints across 32 wards with GeoAI for the city's digital addressing program.</li><li>Worked on the front end of the Integrated Municipal Information System.</li><li>Contributed to the KMC Geoportal, the city's bilingual public web map.</li><li>House numbering, AI road extraction, CCTV, flood, and waste mapping; worked on creating the KMC data collection app.</li></ul></div></article>
+<article class="jcard rv"><div class="jh jh4"><div class="jorg"><a href="https://naxa.com.np/" target="_blank" rel="noopener">NAXA Pvt. Ltd.</a></div></div><div class="jlogo">NX</div><div class="jb"><h3>Technical Project Management Intern</h3><div class="jwhen">Nov 2025 &ndash; Jan 2026</div><ul><li>Worked mainly on DASTAA, producing AI-assisted geospatial data for multi-hazard preparedness planning.</li><li>Coordinated DASTAA mapathons and contributed to the HOT Tasking Manager.</li></ul></div></article>
+<article class="jcard rv"><div class="jh jh1"><div class="jorg"><a href="https://kathmandu.gov.np/np" target="_blank" rel="noopener">Kathmandu Metropolitan City</a></div></div><div class="jlogo"><img src="logo-kmc.jpg" alt="Kathmandu Metropolitan City logo"></div><div class="jb"><h3>GIS Engineer Intern <span class="promo">Promoted</span></h3><div class="jwhen">Mar 2025 &ndash; Nov 2025</div><ul><li>Digital twin modeling, GeoAI feature extraction, and LiDAR heritage research.</li></ul></div></article>
+<article class="jcard rv"><div class="jh jh2"><div class="jorg"><a href="https://geo3dmodelling.com.np/" target="_blank" rel="noopener">Geo3D Modelling Pvt. Ltd.</a></div></div><div class="jlogo">G3D</div><div class="jb"><h3>LiDAR Image Processing Intern</h3><div class="jwhen"></div><ul><li>Processed LiDAR data and imagery for 3D modeling projects.</li></ul></div></article>
+<article class="jcard rv"><div class="jh jh3"><div class="jorg">Dhulikhel Municipality</div></div><div class="jlogo"><img src="logo-nepal.jpg" alt="Government of Nepal logo"></div><div class="jb"><h3>Project Member, WASH Infrastructure Mapping</h3><div class="jwhen">Apr 2022 &ndash; May 2024</div><ul><li>Mapped water, sanitation, and hygiene infrastructure in GIS.</li></ul></div></article>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section class="s soft" id="skills">
+<!-- PUBLICATIONS -->
+<section class="s soft" id="publications">
   <div class="wrap">
-    <div class="head rv"><div><div class="mono">Toolkit</div><h2>Skills</h2></div></div>
-    <div class="skills">
-      <div class="skill rv"><h3>GeoAI &amp; machine learning</h3><div class="stack"><span>PyTorch</span><span>TensorFlow</span><span>U-Net</span><span>Mask R-CNN</span><span>Segment Anything</span><span>Computer vision</span><span>Feature extraction</span></div></div>
-      <div class="skill rv"><h3>LiDAR, 3D &amp; UAV</h3><div class="stack"><span>Airborne LiDAR</span><span>Point clouds</span><span>DTM / DSM</span><span>Digital twins</span><span>UAV photogrammetry</span><span>Multispectral</span></div></div>
-      <div class="skill rv"><h3>GIS, code &amp; field</h3><div class="stack"><span>ArcGIS Pro</span><span>ArcGIS Online</span><span>QGIS</span><span>Google Earth Engine</span><span>Python</span><span>GDAL</span><span>JavaScript</span><span>Leaflet</span><span>DGPS</span><span>CORS</span><span>Total Station</span></div></div>
+    <div class="head rv"><div><div class="mono">Publications</div><h2>Published research</h2></div><p><a href="https://scholar.google.com/citations?user=HAIejMUAAAAJ" target="_blank" rel="noopener">All on Google Scholar &rarr;</a></p></div>
+    <div class="pgrid">
+<a class="pcard rv" href="https://www.jstage.jst.go.jp/article/gisideas/2/2/2_9/_article/-char/ja/" target="_blank" rel="noopener"><h3>Yield Estimation of Potato Crop Using Multispectral UAV Imageries and Machine Learning Algorithms</h3><p class="au">Sudipta Poudel et al.</p><p class="jn">GIS-IDEAs Journal, 2(2)</p><span class="st">Published</span></a>
+<a class="pcard rv" href="https://www.nepjol.info/index.php/jlmge/article/view/83220" target="_blank" rel="noopener"><h3>Urban Heat Island Effect of Kathmandu Metropolitan City</h3><p class="au">Sudipta Poudel et al.</p><p class="jn">Journal of Land Management and Geomatics Education</p><span class="st">Published</span></a>
+<a class="pcard rv" href="https://www.sciencepg.com/article/10.11648/j.ejpm.20251301.12" target="_blank" rel="noopener"><h3>Geospatial Analysis of COVID-19 Vaccination Records in Bardiya and Dang, Nepal</h3><p class="au">Sudipta Poudel et al.</p><p class="jn">European Journal of Preventive Medicine, 2025</p><span class="st">Published</span></a>
+<a class="pcard rv" href="https://drive.google.com/file/d/1rP9kHSCk4JA2Sdl7lqIwsYch11LzVZU2/view?usp=drive_link" target="_blank" rel="noopener"><h3>Residential Land Development Using Unmanned Aerial Vehicles (UAVs) in Nepal</h3><p class="au">Sudipta Poudel et al.</p><p class="jn">Geo-World</p><span class="st">Published</span></a>
+<a class="pcard rv" href="https://www.researchgate.net/publication/373245567_Suitability_Analysis_of_Dumping_site_selection_in_Lalitpur_District_using_AHP_and_MCDA_Techniques" target="_blank" rel="noopener"><h3>Suitability Analysis of Dumping Site Selection in Lalitpur District Using AHP and MCDA Techniques</h3><p class="au">Sudipta Poudel et al.</p><p class="jn">ResearchGate</p><span class="st">Published</span></a>
+<a class="pcard rv" href="https://drive.google.com/file/d/1O30GFBUnxvXsyicPyz-REa79gFFf5HZR/view?usp=sharing" target="_blank" rel="noopener"><h3>Can a Photo-Trained AI Read 3D Data? Building Detection with SAM and LiDAR</h3><p class="au">Sudipta Poudel et al.</p><p class="jn">Research poster, University of North Texas</p><span class="st">Poster</span></a>
     </div>
-  </div>
-</section>
-
-<!-- PUBLICATIONS & AWARDS -->
-<section class="s" id="publications">
-  <div class="wrap two">
-    <div class="rv">
-      <div class="mono" style="color:var(--blue)">Publications</div>
-      <h2 style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(2.2rem,4.6vw,3rem);letter-spacing:-.01em;margin:8px 0 18px">Published research</h2>
-      <a class="pub" href="https://www.jstage.jst.go.jp/article/gisideas/2/2/2_9/_article/-char/ja/" target="_blank" rel="noopener"><h3>Yield Estimation of Potato Crop Using Multispectral UAV Imageries and Machine Learning Algorithms</h3><span>GIS-IDEAs Journal, 2(2)</span></a>
-      <a class="pub" href="https://www.nepjol.info/index.php/jlmge/article/view/83220" target="_blank" rel="noopener"><h3>Urban Heat Island Effect of Kathmandu Metropolitan City</h3><span>Journal of Land Management and Geomatics Education</span></a>
-      <a class="pub" href="https://www.sciencepg.com/article/10.11648/j.ejpm.20251301.12" target="_blank" rel="noopener"><h3>Geospatial Analysis of COVID-19 Vaccination Records in Bardiya and Dang, Nepal</h3><span>European Journal of Preventive Medicine, 2025</span></a>
-      <a class="pub" href="https://drive.google.com/file/d/1rP9kHSCk4JA2Sdl7lqIwsYch11LzVZU2/view?usp=drive_link" target="_blank" rel="noopener"><h3>Residential Land Development Using Unmanned Aerial Vehicles (UAVs) in Nepal</h3><span>Geo-World</span></a>
-      <a class="pub" href="https://www.researchgate.net/publication/373245567_Suitability_Analysis_of_Dumping_site_selection_in_Lalitpur_District_using_AHP_and_MCDA_Techniques" target="_blank" rel="noopener"><h3>Suitability Analysis of Dumping Site Selection in Lalitpur District Using AHP and MCDA Techniques</h3><span>ResearchGate</span></a>
-      <p style="margin-top:16px"><a href="https://scholar.google.com/citations?user=HAIejMUAAAAJ" target="_blank" rel="noopener">All publications on Google Scholar &rarr;</a></p>
-    </div>
-    <div class="rv">
-      <div class="mono" style="color:var(--blue)">Recognition</div>
-      <h2 style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(2.2rem,4.6vw,3rem);letter-spacing:-.01em;margin:8px 0 18px">Honors &amp; awards</h2>
-      <div class="aw"><b>Voertman-Ardoin Graduate Fellowship</b><span>University of North Texas, 2026</span></div>
-      <div class="aw"><b>FIG Foundation Young Surveyor Grant</b><span>International Federation of Surveyors, 2024</span></div>
-      <div class="aw"><b>New Colombo Plan Mobility Program</b><span>Australian Government &middot; Univ. of Southern Queensland, 2024</span></div>
-      <div class="aw"><b>Full Scholarship, Annual Nepal AI School</b><span>NAAMII, 2025</span></div>
-      <div class="aw"><b>Winner, Geo-IdeaThon</b><span>Forest fire anticipatory action</span></div>
-      <div class="aw"><b>Runner-up, Esri India ArcGIS Map Competition</b><span>2024</span></div>
-      <div class="aw"><b>Merit-Based Scholarship</b><span>Kathmandu University, 2020&ndash;2025</span></div>
-      <div class="aw"><b>The ArcGIS Imagery MOOC</b><span>Esri, Dec 2025 &middot; also UAVs in Precision Agriculture (ITC, 2025)</span></div>
-    </div>
+    <div class="head rv" style="margin-top:72px"><div><div class="mono">Recognition</div><h2>Honors &amp; awards</h2></div></div>
+    <div class="agrid"><div class="acard rv"><span class="trophy">&#127942;</span><b>Voertman-Ardoin Graduate Fellowship</b><span>University of North Texas, 2026</span></div><div class="acard rv"><span class="trophy">&#127942;</span><b>FIG Foundation Young Surveyor Grant</b><span>International Federation of Surveyors, 2024</span></div><div class="acard rv"><span class="trophy">&#127942;</span><b>New Colombo Plan Mobility Program</b><span>Australian Government &middot; Univ. of Southern Queensland, 2024</span></div><div class="acard rv"><span class="trophy">&#127942;</span><b>Full Scholarship, Annual Nepal AI School</b><span>NAAMII, 2025</span></div><div class="acard rv"><span class="trophy">&#127942;</span><b>Winner, Geo-IdeaThon</b><span>Forest fire anticipatory action</span></div><div class="acard rv"><span class="trophy">&#127942;</span><b>First Runner-up, Geo Idea Contest</b><span>Enhancing crop monitoring using UAV</span></div><div class="acard rv"><span class="trophy">&#127942;</span><b>Runner-up, Esri India ArcGIS Map Competition</b><span>2024</span></div><div class="acard rv"><span class="trophy">&#127942;</span><b>Merit-Based Scholarship</b><span>Kathmandu University, 2020&ndash;2025</span></div><div class="acard rv"><span class="trophy">&#127942;</span><b>The ArcGIS Imagery MOOC</b><span>Esri, Dec 2025 &middot; UAVs in Precision Agriculture, ITC 2025</span></div></div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="wrap rv">
-    <div class="mono" style="color:var(--glacier)">Contact</div>
-    <h2 style="margin-top:10px">Let's build something on a map.</h2>
-    <p>I'm looking for GIS, GeoAI, LiDAR, and remote sensing internships and research collaborations.</p>
-    <div class="cta">
-      <a class="btn primary" href="mailto:poudelsudipta4014@gmail.com">poudelsudipta4014@gmail.com</a>
-      <a class="btn ghost" href="https://linkedin.com/in/sudipta-poudel" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn ghost" href="https://github.com/123sudhi" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn ghost" href="https://scholar.google.com/citations?user=HAIejMUAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+  <div class="wrap cgrid">
+    <div class="rv">
+      <h2>Contact me</h2>
+      <p class="lead2">Want to discuss a project, an internship, or just say hi? My inbox is open.</p>
+      <a class="big" href="tel:+19403641968">+1 (940) 364-1968</a>
+      <a class="big" href="mailto:poudelsudipta4014@gmail.com">poudelsudipta4014@gmail.com</a>
+      <div class="socials"><a class="sc" href="https://linkedin.com/in/sudipta-poudel" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn" style="background:#0a66c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z" fill="currentColor" stroke="none"/></svg></a><a class="sc" href="mailto:poudelsudipta4014@gmail.com" target="_blank" rel="noopener" aria-label="Email" title="Email" style="background:#ea4335"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a><a class="sc" href="https://scholar.google.com/citations?user=HAIejMUAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar" style="background:#4285f4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 1 9l11 6 9-4.9V17h2V9zM5 13.2V17c0 2.2 3.1 4 7 4s7-1.8 7-4v-3.8L12 17z" fill="currentColor" stroke="none"/></svg></a><a class="sc" href="https://github.com/123sudhi" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub" style="background:#24292f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z" fill="currentColor" stroke="none"/></svg></a><a class="sc" href="Sudipta_Poudel_CV.pdf" target="_blank" rel="noopener" aria-label="CV (PDF)" title="CV (PDF)" style="background:#7a1f2e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></a><button class="sc" id="copyMail" type="button" title="Copy email" aria-label="Copy email" style="background:#4a4d52"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></button></div>
+    </div>
+    <div class="env rv" aria-hidden="true">
+      <svg viewBox="0 0 260 220"><ellipse cx="130" cy="205" rx="70" ry="8" fill="#dbe9ef" opacity=".6"/>
+        <g class="float"><rect x="45" y="55" width="170" height="120" rx="16" fill="none" stroke="#c0394f" stroke-width="10"/><path d="M55 70l75 55 75-55" fill="none" stroke="#c0394f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <circle cx="228" cy="40" r="9" fill="none" stroke="#dbe9ef" stroke-width="5"/><circle cx="26" cy="150" r="6" fill="none" stroke="#dbe9ef" stroke-width="4"/><path d="M228 120v24M216 132h24" stroke="#dbe9ef" stroke-width="5" stroke-linecap="round"/><path d="M60 22q8-8 16 0t16 0" fill="none" stroke="#dbe9ef" stroke-width="5" stroke-linecap="round"/></svg>
     </div>
   </div>
 </section>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image viewer"><button aria-label="Close">&times;</button><img alt=""><p></p></div>
+<div id="toast" role="status"></div>
 <footer>&copy; <span id="yr"></span> Sudipta Poudel &middot; Denton, Texas</footer>
 
 <script src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
@@ -552,6 +725,24 @@ document.querySelectorAll('#filters button').forEach(function(b){b.onclick=funct
   document.querySelectorAll('.tile').forEach(function(t){t.classList.toggle('hide',f!=='all'&&t.dataset.c.split(' ').indexOf(f)<0)});
 }});
 
+
+
+// education cards
+document.querySelectorAll('.ecard').forEach(function(c){c.addEventListener('click',function(){var o=c.classList.toggle('open');c.setAttribute('aria-expanded',o);c.querySelector('.hint').innerHTML=o?'Hide details &uarr;':'Show details &darr;';});});
+// lightbox
+(function(){var lb=document.getElementById('lb'),im=lb.querySelector('img'),cap=lb.querySelector('p');
+ function open(src,alt){im.src=src;im.alt=alt||'';cap.textContent=alt||'';lb.classList.add('on');}
+ function close(){lb.classList.remove('on');}
+ document.querySelectorAll('.tile .im img,.case .media img').forEach(function(i){i.parentNode.addEventListener('click',function(){open(i.currentSrc||i.src,i.alt)});});
+ lb.addEventListener('click',close);addEventListener('keydown',function(e){if(e.key==='Escape')close();});})();
+// tilt on project tiles
+if(!reduce&&matchMedia('(hover:hover)').matches){document.querySelectorAll('.tile').forEach(function(t){
+ t.addEventListener('mousemove',function(e){var r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform='perspective(800px) rotateX('+(-y*6)+'deg) rotateY('+(x*6)+'deg) translateY(-4px)';});
+ t.addEventListener('mouseleave',function(){t.style.transform='';});});}
+// copy email
+(function(){var b=document.getElementById('copyMail'),t=document.getElementById('toast');if(!b)return;
+ b.addEventListener('click',function(){var m='poudelsudipta4014@gmail.com';function done(){t.textContent='Email copied!';t.classList.add('on');setTimeout(function(){t.classList.remove('on')},1800);}
+ if(navigator.clipboard){navigator.clipboard.writeText(m).then(done,function(){prompt('Copy my email:',m)})}else{prompt('Copy my email:',m)}});})();
 
 // scroll progress
 (function(){var pb=document.getElementById('prog');addEventListener('scroll',function(){var h=document.documentElement;pb.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});})();
@@ -623,40 +814,50 @@ function addBuildings(map,color){
   });
 })();
 
-// WORK GLOBE
+// JOURNEY MAP: Kathmandu -> Denton
 (function(){
-  var el=document.getElementById('map');
+  var el=document.getElementById('map'), box=document.getElementById('places');
   var P=[
-    ['University of North Texas','Denton, Texas &middot; M.S. Geography, LiDAR Lab',33.2107,-97.1503,15],
-    ['Kathmandu Metropolitan City','GIS and GeoAI Engineer &middot; ~300,000 buildings',27.7172,85.3240,13],
-    ['Kathmandu University','B.E. Geomatics Engineering',27.6194,85.5386,15],
-    ['Dhulikhel Municipality','WASH infrastructure mapping',27.6220,85.5560,14],
-    ['Seoul, South Korea','Research: air temperature with IoT data',37.5665,126.9780,11],
-    ['Univ. of Southern Queensland','New Colombo Plan survey practicum',-27.6060,151.9320,14]];
-  var box=document.getElementById('places');
-  if(!window.maplibregl||!hasGL){el.innerHTML='<p style="padding:20px;color:#4a4d52">The 3D globe needs a browser with WebGL and an internet connection.</p>';}
+    ['Kathmandu University','Dhulikhel, Nepal &middot; B.E. Geomatics Engineering, 2020&ndash;2025',[85.5386,27.6194],13],
+    ['Kathmandu Metropolitan City','Kathmandu, Nepal &middot; GIS and GeoAI Engineer, 2025&ndash;2026',[85.3240,27.7172],12],
+    ['University of North Texas','Denton, Texas &middot; M.S. Geography, 2026&ndash;now',[-97.1503,33.2107],13]];
+  var A=[85.3240,27.7172], B=[-97.1503,33.2107];
+  function arc(a,b,n){var r=Math.PI/180,la1=a[1]*r,lo1=a[0]*r,la2=b[1]*r,lo2=b[0]*r;
+    var d=2*Math.asin(Math.sqrt(Math.pow(Math.sin((la2-la1)/2),2)+Math.cos(la1)*Math.cos(la2)*Math.pow(Math.sin((lo2-lo1)/2),2))),pts=[],prev=null;
+    for(var i=0;i<=n;i++){var f=i/n,A1=Math.sin((1-f)*d)/Math.sin(d),B1=Math.sin(f*d)/Math.sin(d);
+      var x=A1*Math.cos(la1)*Math.cos(lo1)+B1*Math.cos(la2)*Math.cos(lo2),y=A1*Math.cos(la1)*Math.sin(lo1)+B1*Math.cos(la2)*Math.sin(lo2),z=A1*Math.sin(la1)+B1*Math.sin(la2);
+      var lat=Math.atan2(z,Math.sqrt(x*x+y*y))/r,lng=Math.atan2(y,x)/r;
+      if(prev!==null){while(lng-prev>180)lng-=360;while(lng-prev<-180)lng+=360;} prev=lng; pts.push([lng,lat]);}
+    return pts;}
+  var route=arc(A,B,160);
   var map=null;
   if(window.maplibregl&&hasGL){
     try{
-      map=new maplibregl.Map({container:el,style:'https://tiles.openfreemap.org/styles/positron',center:[40,25],zoom:1.3,cooperativeGestures:true});
-      map.addControl(new maplibregl.NavigationControl({visualizePitch:true}),'top-right');
-      map.on('style.load',function(){try{map.setProjection({type:'globe'})}catch(e){} addBuildings(map,'#7a1f2e');});
-      var spinning=!reduce;
-      function rotate(){ if(!spinning||!map) return; var c=map.getCenter(); c.lng+=2.2; map.easeTo({center:c,duration:1000,easing:function(t){return t}}); }
-      map.on('moveend',rotate); map.on('load',rotate);
-      ['mousedown','touchstart','wheel'].forEach(function(ev){el.addEventListener(ev,function(){spinning=false},{passive:true})});
-      P.forEach(function(p){
-        var d=document.createElement('div');d.className='mk';
-        new maplibregl.Marker({element:d}).setLngLat([p[3],p[2]]).setPopup(new maplibregl.Popup({offset:14}).setHTML('<b>'+p[0]+'</b><br>'+p[1])).addTo(map);
+      map=new maplibregl.Map({container:el,style:'https://tiles.openfreemap.org/styles/positron',bounds:[[-125,10],[100,72]],fitBoundsOptions:{padding:30},cooperativeGestures:true,attributionControl:{compact:true}});
+      map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
+      map.on('load',function(){
+        map.addSource('route',{type:'geojson',data:{type:'Feature',geometry:{type:'LineString',coordinates:[route[0]]}}});
+        map.addLayer({id:'route-bg',type:'line',source:{type:'geojson',data:{type:'Feature',geometry:{type:'LineString',coordinates:route}}},paint:{'line-color':'#c4c8ce','line-width':2,'line-dasharray':[2,2]}});
+        map.addLayer({id:'route',type:'line',source:'route',paint:{'line-color':'#7a1f2e','line-width':4},layout:{'line-cap':'round'}});
+        var plane=document.createElement('div');plane.style.cssText='font-size:26px;line-height:1';plane.textContent='✈️';
+        var pm=new maplibregl.Marker({element:plane}).setLngLat(route[0]).addTo(map);
+        var k=0;function step(){k=Math.min(k+1,route.length-1);map.getSource('route').setData({type:'Feature',geometry:{type:'LineString',coordinates:route.slice(0,k+1)}});pm.setLngLat(route[k]);
+          if(k<route.length-1){setTimeout(step,reduce?0:25)}else{setTimeout(function(){k=0;step()},2500)}}
+        step();
+        [['Kathmandu, Nepal',A],['Denton, Texas',B]].forEach(function(q){
+          var d=document.createElement('div');d.className='mk';new maplibregl.Marker({element:d}).setLngLat(q[1]).setPopup(new maplibregl.Popup({offset:14}).setHTML('<b>'+q[0]+'</b>')).addTo(map);
+          var l=document.createElement('div');l.className='pinlbl';l.textContent=q[0];new maplibregl.Marker({element:l,anchor:'top',offset:[0,14]}).setLngLat(q[1]).addTo(map);});
       });
     }catch(e){map=null;}
   }
+  if(!map){el.innerHTML='<p style="padding:20px;color:#4a4d52">The map needs a browser with WebGL and an internet connection.</p>';}
   P.forEach(function(p){
     var b=document.createElement('button');b.innerHTML='<b>'+p[0]+'</b><span>'+p[1]+'</span>';
-    b.onclick=function(){box.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
-      if(map){spinning=false;map.flyTo({center:[p[3],p[2]],zoom:p[4],pitch:p[4]>12?55:0,duration:reduce?0:3500,essential:true});}};
-    box.appendChild(b);
-  });
+    b.onclick=function(){box.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');if(map)map.flyTo({center:p[2],zoom:p[3],duration:reduce?0:3000,essential:true});};
+    box.appendChild(b);});
+  var all=document.createElement('button');all.innerHTML='<b>&#9992; Show the whole journey</b><span>Kathmandu &rarr; Denton</span>';
+  all.onclick=function(){box.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});all.classList.add('on');if(map)map.fitBounds([[-125,10],[100,72]],{padding:30,duration:reduce?0:2500});};
+  box.prepend(all);
 })();
 </script>
 </body>
