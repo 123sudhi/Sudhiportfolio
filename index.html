@@ -10,7 +10,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%237a1f2e'/><circle cx='32' cy='32' r='16' fill='none' stroke='white' stroke-width='4'/><circle cx='32' cy='32' r='5' fill='white'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
 <style>
 :root{
@@ -21,12 +21,12 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
 html,body{overflow-x:hidden}
-body{background:var(--bg);color:var(--ink);font:18px/1.7 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font:18px/1.7 "Open Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
 img{display:block;max-width:100%}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-.mono{font-family:"DM Mono",monospace;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+.mono{font-family:Montserrat,sans-serif;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
 
 /* nav */
 header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -53,7 +53,7 @@ header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backd
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.96) 0%,rgba(20,20,20,.86) 45%,rgba(122,31,46,.45) 100%);z-index:1;pointer-events:none}
 .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.35fr .65fr;gap:48px;align-items:center;padding:92px 24px 84px}
 .hero .mono{color:var(--glacier)}
-.hero h1{font-family:"DM Serif Display",serif;font-weight:400;font-size:clamp(3rem,7vw,5.2rem);line-height:1.02;letter-spacing:-.035em;font-weight:700;color:#fff;margin:14px 0 18px}
+.hero h1{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.05;letter-spacing:-.02em;font-weight:700;color:#fff;margin:14px 0 18px}
 .hero .role{font-size:1.3rem;color:#b9c8da;max-width:600px}
 .hero .role b{color:#fff;font-weight:600}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
@@ -75,7 +75,7 @@ header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backd
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--silver)}
 .metric{padding:30px 24px;border-right:1px solid var(--silver);background:var(--glacier)}
 .metric:last-child{border-right:0}
-.metric b{display:block;font-family:"DM Serif Display",serif;font-weight:400;font-size:2.8rem;font-weight:700;letter-spacing:-.03em;color:var(--blue)}
+.metric b{display:block;font-family:Montserrat,sans-serif;font-weight:700;font-size:2.8rem;font-weight:700;letter-spacing:-.03em;color:var(--blue)}
 .metric span{color:var(--sub);font-size:1rem}
 @media (max-width:760px){.metrics{grid-template-columns:1fr 1fr}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 
@@ -84,12 +84,12 @@ section.s{padding:96px 0}
 section.soft{background:var(--soft)}
 .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
 .head .mono{color:var(--blue)}
-.head h2{font-family:"DM Serif Display",serif;font-weight:400;font-size:clamp(2.2rem,4.6vw,3.2rem);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin-top:8px;max-width:720px}
+.head h2{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(2.2rem,4.6vw,3.2rem);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin-top:8px;max-width:720px}
 .head p{color:var(--sub);max-width:440px}
 
 /* about */
 .about{display:grid;grid-template-columns:1.2fr .8fr;gap:56px}
-.about .lead{font-family:"DM Serif Display",serif;font-style:italic;font-size:1.9rem;line-height:1.45;color:var(--ink);margin-bottom:22px}
+.about .lead{font-family:Montserrat,sans-serif;font-style:italic;font-weight:500;font-size:1.6rem;line-height:1.45;color:var(--ink);margin-bottom:22px}
 .about p+p{margin-top:14px}
 .about p{color:var(--sub)}
 .facts{border:1px solid var(--line);border-radius:12px;overflow:hidden}
@@ -106,11 +106,11 @@ section.soft{background:var(--soft)}
 .case .media{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--soft);aspect-ratio:16/10}
 .case .media img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .case:hover .media img{transform:scale(1.03)}
-.case .num{font-family:"DM Mono",monospace;color:var(--blue);font-size:.8rem}
-.case h3{font-family:"DM Serif Display",serif;font-weight:400;font-size:2rem;line-height:1.2;letter-spacing:-.02em;margin:6px 0 16px}
+.case .num{font-family:Montserrat,sans-serif;color:var(--blue);font-size:.8rem}
+.case h3{font-family:Montserrat,sans-serif;font-weight:700;font-size:2rem;line-height:1.2;letter-spacing:-.02em;margin:6px 0 16px}
 .cps{display:grid;gap:12px}
 .cps div{display:grid;grid-template-columns:110px 1fr;gap:12px;font-size:1.05rem}
-.cps dt{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);padding-top:3px}
+.cps dt{font-family:Montserrat,sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);padding-top:3px}
 .cps dd{color:var(--ink)}
 .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
 .stack span{font-size:.88rem;font-weight:500;padding:4px 10px;border-radius:6px;background:var(--sky);color:var(--blue)}
@@ -123,7 +123,7 @@ section.soft{background:var(--soft)}
 
 /* work grid */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.filters button{font:500 1rem "DM Sans",sans-serif;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--sub);cursor:pointer}
+.filters button{font:500 1rem "Open Sans",sans-serif;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--sub);cursor:pointer}
 .filters button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media (max-width:980px){.grid{grid-template-columns:1fr 1fr}}
@@ -133,7 +133,7 @@ section.soft{background:var(--soft)}
 .tile .im{aspect-ratio:16/10;overflow:hidden;background:var(--soft)}
 .tile .im img{width:100%;height:100%;object-fit:cover}
 .tile .tx{padding:16px 18px 18px}
-.tile .tg{font-family:"DM Mono",monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.tile .tg{font-family:Montserrat,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
 .tile h3{font-size:1.15rem;line-height:1.35;margin:4px 0 6px}
 .tile p{font-size:.98rem;color:var(--sub)}
 .tile.hide{display:none}
@@ -152,7 +152,7 @@ section.soft{background:var(--soft)}
 /* experience */
 .xp{border-top:1px solid var(--line)}
 .job{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
-.job .when{font-family:"DM Mono",monospace;font-size:.88rem;color:var(--sub);padding-top:3px}
+.job .when{font-family:Montserrat,sans-serif;font-size:.88rem;color:var(--sub);padding-top:3px}
 .job h3{font-size:1.25rem}
 .job .org{color:var(--sub);font-size:.94rem}
 .job ul{margin:8px 0 0 18px;font-size:1.02rem}
@@ -182,7 +182,7 @@ section.soft{background:var(--soft)}
 
 /* contact */
 .contact{background:var(--navy);color:#cfd9e6;text-align:center;padding:96px 0}
-.contact h2{font-family:"DM Serif Display",serif;font-weight:400;font-size:clamp(2.4rem,6vw,3.8rem);color:#fff;letter-spacing:-.03em;line-height:1.1}
+.contact h2{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(2.4rem,6vw,3.8rem);color:#fff;letter-spacing:-.03em;line-height:1.1}
 .contact p{max-width:560px;margin:14px auto 28px}
 .contact .cta{justify-content:center}
 footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;padding:0 0 30px}
@@ -199,7 +199,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
 .where{position:absolute;right:24px;bottom:22px;z-index:3;display:flex;align-items:center;gap:10px;background:rgba(20,20,20,.72);backdrop-filter:blur(8px);color:#fff;padding:10px 14px;border-radius:10px;font-size:.88rem;border:1px solid rgba(255,255,255,.15)}
 .where i{width:8px;height:8px;border-radius:50%;background:#e0566b;box-shadow:0 0 0 4px rgba(224,86,107,.3);animation:pulse 2s infinite}
 .where b{font-weight:600}
-.scrolldown{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;color:#fff;opacity:.7;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;font-family:"DM Mono",monospace}
+.scrolldown{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;color:#fff;opacity:.7;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;font-family:Montserrat,sans-serif}
 @media (max-width:860px){.where{left:16px;right:16px;bottom:14px}.scrolldown{display:none}.hero{min-height:auto}}
 
 /* before/after slider */
@@ -215,13 +215,13 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
 
 /* pipeline stepper */
 .pipe{margin-top:56px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px}
-.pipe h3{font-family:"DM Serif Display",serif;font-weight:400;font-size:1.7rem;margin-bottom:4px}
+.pipe h3{font-family:Montserrat,sans-serif;font-weight:700;font-size:1.7rem;margin-bottom:4px}
 .pipe .sub{color:var(--sub);margin-bottom:22px}
 .steps{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;position:relative}
 .steps:before{content:"";position:absolute;left:4%;right:4%;top:22px;height:2px;background:var(--line)}
 .steps .fillline{position:absolute;left:4%;top:22px;height:2px;background:var(--blue);width:0;transition:width .5s}
 .step{position:relative;text-align:center;cursor:pointer;background:none;border:0;font:inherit;color:inherit;padding:0}
-.step .dot{width:44px;height:44px;border-radius:50%;margin:0 auto 10px;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-family:"DM Mono",monospace;font-weight:500;transition:.3s;position:relative;z-index:1}
+.step .dot{width:44px;height:44px;border-radius:50%;margin:0 auto 10px;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-family:Montserrat,sans-serif;font-weight:500;transition:.3s;position:relative;z-index:1}
 .step.on .dot,.step.done .dot{background:var(--blue);border-color:var(--blue);color:#fff}
 .step span{font-size:.9rem;font-weight:600;display:block;line-height:1.3}
 .stepbody{margin-top:22px;padding:20px 22px;border-radius:12px;background:var(--glacier);min-height:96px}
@@ -231,7 +231,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
 /* globe */
 #map{height:520px}
 .mk{width:16px;height:16px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 2px var(--blue),0 4px 10px rgba(0,0,0,.35);cursor:pointer}
-.maplibregl-popup-content{font:15px/1.4 "DM Sans",sans-serif;border-radius:10px;padding:12px 14px}
+.maplibregl-popup-content{font:15px/1.4 "Open Sans",sans-serif;border-radius:10px;padding:12px 14px}
 @media (max-width:860px){#map{height:380px}}
 
 .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
@@ -299,7 +299,10 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
       <p>I trained as a geomatics engineer at Kathmandu University (CGPA 3.91), then spent 16 months at Kathmandu Metropolitan City, moving from intern to GIS and GeoAI Engineer. There I helped build the city's digital address system, extracting about 300,000 building footprints with deep learning, and worked on its municipal information system, flood and CCTV mapping, and 3D visualization.</p>
       <p>Now at the University of North Texas, I research whether photo-trained AI models can understand 3D LiDAR data, and how machine learning with IoT sensors can predict air temperature where there are no weather stations.</p>
     </div>
-    <dl class="facts rv">
+    <div class="rv">
+      <figure style="margin:0 0 18px;border-radius:14px;overflow:hidden;border:1px solid var(--line)"><img src="field-hike.jpg" alt="Sudipta in a safety vest with a field hammer on a hillside survey trail in Nepal" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 35%"></figure>
+      <p style="font-size:.88rem;color:var(--sub);margin:-8px 0 16px">In the field in Nepal.</p>
+    <dl class="facts">
       <div><dt>Now</dt><dd>M.S. Geography, University of North Texas</dd></div>
       <div><dt>Fellowship</dt><dd>Voertman-Ardoin Graduate Fellow</dd></div>
       <div><dt>Roles</dt><dd>Graduate Research Assistant, LiDAR Lab &middot; Graduate Teaching Assistant, GIS Help Center Lab</dd></div>
@@ -307,6 +310,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
       <div><dt>Based in</dt><dd>Denton, Texas &middot; from Kathmandu, Nepal</dd></div>
       <div><dt>Looking for</dt><dd>GIS, GeoAI, LiDAR, and remote sensing internships</dd></div>
     </dl>
+    </div>
   </div>
 </section>
 
@@ -365,7 +369,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
       </div>
     </article>
     <article class="case rv">
-      <div class="media"><img src="3d-buildings.jpg" alt="3D buildings extracted from airborne LiDAR in ArcGIS Pro"></div>
+      <div class="media"><img src="3d-buildings-green.jpg" alt="3D building models of the UNT campus extracted from airborne LiDAR in ArcGIS Pro"></div>
       <div>
         <div class="num">03 &middot; Denton, Texas</div>
         <h3>3D buildings from airborne LiDAR</h3>
@@ -418,8 +422,10 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
     </div>
     <div class="grid">
       <article class="tile rv" data-c="web city"><div class="im"><img src="imis.jpg" alt="Integrated Municipal Information System portal" loading="lazy"></div><div class="tx"><div class="tg">Web GIS &middot; KMC</div><h3>Integrated Municipal Information System</h3><p>Front-end development of Kathmandu's municipal GIS portal and its 3D building view.</p></div></article>
+      <article class="tile rv" data-c="web city"><div class="im"><img src="data-app-map.jpg" alt="Field data app map view showing Ward 17 imagery, buildings, and roads in red" loading="lazy" style="object-position:50% 40%"></div><div class="tx"><div class="tg">Mobile app &middot; KMC</div><h3>KMC data collection app</h3><p>Worked on creating a data collection app for Kathmandu Metropolitan City, used to collect point, line, and polygon data in the field over ward imagery, building, and road layers.</p></div></article>
       <article class="tile rv" data-c="3d city"><div class="im"><img src="sam-masks.jpg" alt="Original image, building mask, and 582 segmentation masks" loading="lazy"></div><div class="tx"><div class="tg">GeoAI &middot; Segmentation</div><h3>Building segmentation with Segment Anything</h3><p>Turned an aerial image into a building mask and 582 individual segmentation masks.</p></div></article>
       <article class="tile rv" data-c="city"><div class="im"><img src="house-numbering.jpg" alt="House numbers on buildings in Kathmandu" loading="lazy"></div><div class="tx"><div class="tg">Addressing &middot; KMC</div><h3>Metric &amp; grid-based house numbering</h3><p>House-numbering system linked to roads and the city address database.</p></div></article>
+      <article class="tile rv" data-c="3d"><div class="im"><img src="lidar-scene.jpg" alt="Airborne LiDAR of the UNT campus rendered in an ArcGIS Pro 3D scene" loading="lazy"></div><div class="tx"><div class="tg">LiDAR &middot; 3D scene</div><h3>Airborne LiDAR of the UNT campus</h3><p>2020 airborne LiDAR rendered in an ArcGIS Pro 3D scene, the starting point for the 3D building models.</p></div></article>
       <article class="tile rv" data-c="rs hazard"><div class="im"><img src="uhi.jpg" alt="Land surface temperature map of Kathmandu" loading="lazy"></div><div class="tx"><div class="tg">Remote sensing &middot; Published</div><h3>Urban heat island of Kathmandu</h3><p>Land surface temperature from satellite imagery. <a href="https://www.nepjol.info/index.php/jlmge/article/view/83220" target="_blank" rel="noopener">Paper &rarr;</a></p></div></article>
       <article class="tile rv" data-c="rs"><div class="im"><img src="live-oak.jpg" alt="Map of the value of oil firms that own wells in Live Oak County, Texas" loading="lazy"></div><div class="tx"><div class="tg">Cartography</div><h3>Oil firms in Live Oak County, Texas</h3><p>Graduated-symbol map of working-interest value, with Eagle Ford Shale and a U.S. inset.</p></div></article>
       <article class="tile rv" data-c="hazard 3d"><div class="im"><img src="flood-3d.jpg" alt="3D terrain showing flood water in valleys" loading="lazy"></div><div class="tx"><div class="tg">Hazards &middot; 3D</div><h3>Flood inundation in 3D</h3><p>Flood inundation over a DEM, visualized in 3D.</p></div></article>
@@ -430,13 +436,12 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
       <article class="tile rv" data-c="city"><div class="im"><img src="cctv.jpg" alt="Map of CCTV cameras in Kathmandu" loading="lazy"></div><div class="tx"><div class="tg">Public safety</div><h3>CCTV mapping</h3><p>Mapped CCTV camera locations across Kathmandu Metropolitan City.</p></div></article>
       <article class="tile rv" data-c="rs"><div class="im"><img src="rice-drone.jpg" alt="Multispectral drone and flight-planning tablet beside a rice field" loading="lazy"></div><div class="tx"><div class="tg">UAV &middot; Field equipment</div><h3>Multispectral drone for the rice survey</h3><p>Planned automated flights on a tablet and captured multispectral imagery of the rice plots.</p></div></article>
       <article class="tile rv" data-c="city"><div class="im"><img src="waste.jpg" alt="Waste disposal planning map" loading="lazy"></div><div class="tx"><div class="tg">Spatial analysis</div><h3>Waste disposal site allocation</h3><p>Allocated waste disposal sites for Kathmandu Metropolitan City.</p></div></article>
-      <article class="tile rv" data-c="web"><div class="im"><img src="data-app.jpg" alt="Field data collection app" loading="lazy"></div><div class="tx"><div class="tg">Mobile app</div><h3>Field data collection app</h3><p>Simple app for collecting point, line, and polygon data in the field.</p></div></article>
       <article class="tile rv" data-c="web"><div class="im"><img src="kmc-geoportal.jpg" alt="KMC Geoportal" loading="lazy"></div><div class="tx"><div class="tg">Web GIS</div><h3>KMC Geoportal</h3><p>Geoportal of Kathmandu Metropolitan City. <a href="https://github.com/123sudhi/KMC-Geoportal" target="_blank" rel="noopener">Code &rarr;</a></p></div></article>
       <article class="tile rv" data-c="hazard"><div class="im"><img src="urban-flood.jpg" alt="Urban flood extent map" loading="lazy"></div><div class="tx"><div class="tg">Hazards</div><h3>Urban flood extent</h3><p>Urban flood extent mapping project.</p></div></article>
     </div>
 
     <div class="xp rv" style="margin-top:44px">
-      <div class="job"><div class="when">Geo3D Modelling</div><div><h3>Terrestrial laser scanning</h3><ul><li>3D model of Krishna Mandir from TLS data; TLS survey of the Pharping Hydropower Plant; TLS and UAV vegetation plots for allometric equations, including Sagarnath Forest Area.</li></ul></div></div>
+      
       
       
       <div class="job"><div class="when">1st place</div><div><h3>Anticipatory action for forest fire management</h3><ul><li>Geospatial early-warning approach; won the Geo-IdeaThon. <a href="https://drive.google.com/file/d/14Qgzcqb1wo29c8UKS9s6_kMLHbFrvMh5/view?usp=sharing" target="_blank" rel="noopener">Award &rarr;</a></li></ul></div></div>
@@ -462,7 +467,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
       <div class="job rv"><div class="when">Jan 2026 &ndash; Jul 2026</div><div><h3>GIS and GeoAI Engineer</h3><div class="org"><a href="https://kathmandu.gov.np/np" target="_blank" rel="noopener">Kathmandu Metropolitan City</a></div><ul><li>Extracted about 300,000 building footprints across 32 wards with GeoAI for the city's digital addressing program.</li><li>Front-end development of the Integrated Municipal Information System; house numbering, road extraction, CCTV, flood, and waste mapping.</li></ul></div></div>
       <div class="job rv"><div class="when">Nov 2025 &ndash; Jan 2026</div><div><h3>Technical Project Management Intern</h3><div class="org"><a href="https://naxa.com.np/" target="_blank" rel="noopener">NAXA Pvt. Ltd.</a></div><ul><li>Worked mainly on DASTAA, producing AI-assisted geospatial data for multi-hazard preparedness planning; coordinated mapathons.</li></ul></div></div>
       <div class="job rv"><div class="when">Mar 2025 &ndash; Nov 2025</div><div><h3>GIS Engineer Intern <span class="promo">Promoted</span></h3><div class="org"><a href="https://kathmandu.gov.np/np" target="_blank" rel="noopener">Kathmandu Metropolitan City</a></div><ul><li>Digital twin modeling, GeoAI feature extraction, and LiDAR heritage research.</li></ul></div></div>
-      <div class="job rv"><div class="when"></div><div><h3>LiDAR &amp; Terrestrial Laser Scanning Intern</h3><div class="org"><a href="https://geo3dmodelling.com.np/" target="_blank" rel="noopener">Geo3D Modelling Pvt. Ltd.</a></div><ul><li>TLS of Krishna Mandir and the Pharping Hydropower Plant; TLS and UAV vegetation plots.</li></ul></div></div>
+      <div class="job rv"><div class="when"></div><div><h3>LiDAR Image Processing Intern</h3><div class="org"><a href="https://geo3dmodelling.com.np/" target="_blank" rel="noopener">Geo3D Modelling Pvt. Ltd.</a></div><ul><li>Processed LiDAR data and imagery for 3D modeling projects.</li></ul></div></div>
       <div class="job rv"><div class="when">Apr 2022 &ndash; May 2024</div><div><h3>Project Member, WASH Infrastructure Mapping</h3><div class="org">Dhulikhel Municipality</div><ul><li>Mapped water, sanitation, and hygiene infrastructure in GIS.</li></ul></div></div>
     </div>
   </div>
@@ -474,7 +479,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
     <div class="head rv"><div><div class="mono">Toolkit</div><h2>Skills</h2></div></div>
     <div class="skills">
       <div class="skill rv"><h3>GeoAI &amp; machine learning</h3><div class="stack"><span>PyTorch</span><span>TensorFlow</span><span>U-Net</span><span>Mask R-CNN</span><span>Segment Anything</span><span>Computer vision</span><span>Feature extraction</span></div></div>
-      <div class="skill rv"><h3>LiDAR, 3D &amp; UAV</h3><div class="stack"><span>Airborne LiDAR</span><span>Terrestrial laser scanning</span><span>Point clouds</span><span>DTM / DSM</span><span>Digital twins</span><span>UAV photogrammetry</span><span>Multispectral</span></div></div>
+      <div class="skill rv"><h3>LiDAR, 3D &amp; UAV</h3><div class="stack"><span>Airborne LiDAR</span><span>Point clouds</span><span>DTM / DSM</span><span>Digital twins</span><span>UAV photogrammetry</span><span>Multispectral</span></div></div>
       <div class="skill rv"><h3>GIS, code &amp; field</h3><div class="stack"><span>ArcGIS Pro</span><span>ArcGIS Online</span><span>QGIS</span><span>Google Earth Engine</span><span>Python</span><span>GDAL</span><span>JavaScript</span><span>Leaflet</span><span>DGPS</span><span>CORS</span><span>Total Station</span></div></div>
     </div>
   </div>
@@ -485,7 +490,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
   <div class="wrap two">
     <div class="rv">
       <div class="mono" style="color:var(--blue)">Publications</div>
-      <h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(2.2rem,4.6vw,3rem);letter-spacing:-.01em;margin:8px 0 18px">Published research</h2>
+      <h2 style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(2.2rem,4.6vw,3rem);letter-spacing:-.01em;margin:8px 0 18px">Published research</h2>
       <a class="pub" href="https://www.jstage.jst.go.jp/article/gisideas/2/2/2_9/_article/-char/ja/" target="_blank" rel="noopener"><h3>Yield Estimation of Potato Crop Using Multispectral UAV Imageries and Machine Learning Algorithms</h3><span>GIS-IDEAs Journal, 2(2)</span></a>
       <a class="pub" href="https://www.nepjol.info/index.php/jlmge/article/view/83220" target="_blank" rel="noopener"><h3>Urban Heat Island Effect of Kathmandu Metropolitan City</h3><span>Journal of Land Management and Geomatics Education</span></a>
       <a class="pub" href="https://www.sciencepg.com/article/10.11648/j.ejpm.20251301.12" target="_blank" rel="noopener"><h3>Geospatial Analysis of COVID-19 Vaccination Records in Bardiya and Dang, Nepal</h3><span>European Journal of Preventive Medicine, 2025</span></a>
@@ -495,7 +500,7 @@ footer{background:var(--navy);color:#7d8ea5;text-align:center;font-size:.85rem;p
     </div>
     <div class="rv">
       <div class="mono" style="color:var(--blue)">Recognition</div>
-      <h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(2.2rem,4.6vw,3rem);letter-spacing:-.01em;margin:8px 0 18px">Honors &amp; awards</h2>
+      <h2 style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(2.2rem,4.6vw,3rem);letter-spacing:-.01em;margin:8px 0 18px">Honors &amp; awards</h2>
       <div class="aw"><b>Voertman-Ardoin Graduate Fellowship</b><span>University of North Texas, 2026</span></div>
       <div class="aw"><b>FIG Foundation Young Surveyor Grant</b><span>International Federation of Surveyors, 2024</span></div>
       <div class="aw"><b>New Colombo Plan Mobility Program</b><span>Australian Government &middot; Univ. of Southern Queensland, 2024</span></div>
@@ -625,8 +630,6 @@ function addBuildings(map,color){
     ['University of North Texas','Denton, Texas &middot; M.S. Geography, LiDAR Lab',33.2107,-97.1503,15],
     ['Kathmandu Metropolitan City','GIS and GeoAI Engineer &middot; ~300,000 buildings',27.7172,85.3240,13],
     ['Kathmandu University','B.E. Geomatics Engineering',27.6194,85.5386,15],
-    ['Krishna Mandir, Patan','Terrestrial laser scanning',27.6727,85.3253,17],
-    ['Pharping Hydropower Plant','Terrestrial laser scanning',27.6130,85.2650,15],
     ['Dhulikhel Municipality','WASH infrastructure mapping',27.6220,85.5560,14],
     ['Seoul, South Korea','Research: air temperature with IoT data',37.5665,126.9780,11],
     ['Univ. of Southern Queensland','New Colombo Plan survey practicum',-27.6060,151.9320,14]];
